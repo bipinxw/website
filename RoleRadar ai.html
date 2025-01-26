@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RoleRadar.ai - AI-powered job matching platform">
+    <meta name="keywords" content="AI, Job Matching, Resume Analysis, Product Management, React.js, Flask">
+    <meta name="author" content="Your Name">
+    <title>RoleRadar.ai - AI-Powered Job Matcher</title>
+
+    <!-- Font Awesome CDN for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #007BFF;
+            --nav-link-color: #333333;
+            --border-color: #444444;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #010000;
+            --text-color: #ffffff;
+            --link-color: #8aff00;
+            --nav-link-color: #f5f5f5;
+            --border-color: #cccccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+            border-bottom: 2px solid var(--bg-color);
+            padding: 10px;
+        }
+
+        .banner img {
+            max-height: 100px;
+            width: auto;
+        }
+
+        .dp {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            background: url("https://uc4269e5ec0e75384a803feb2df4.previews.dropboxusercontent.com/p/thumb/ACi_s1wsDPpbuRj6eMV-IoocYo26sKVqkRkyLanAd-GRankwLU3bYX8fWVZH4HkBIiN_MUDK80aNUw0Yw3tUAXq_csZ6O1jBMCACG92gxJt8SPREr1nYeKRIbo45rROgrHzl9OvIIZJG6mV7WkApsm2NBARSc04bRJPBZreixuU8p3Le0OqPVE7RqIb_6SAekJ7VkcT2aVo9MZQNhAlvFXFzIUPHmyBl5E89CDQ1kfHzcgYn7odETHiiN9LndBID3y5vpGRwR4LwXnO9OERDv7aSepxqmuABdFrW2ZgMHDtgRN2ytL21p0CSp-ju_gGsQOFoOeQjcVxOY74-Lx0xPi5X7Rvr2vfaBBX2fXUDSfaeuaVpS3JP8zFUqZmjRW-_frhNJTyHA-QqUbkqzx5KN3em/p.jpeg") center/cover;
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .dp:hover {
+            transform: scale(1.1) rotate(5deg);
+            cursor: pointer;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            color: var(--link-color);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.2);
+            color: var(--text-color);
+            background-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 31px;
+            margin: 10px 0;
+            border-bottom: 1px solid var(--bg-color);
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            max-width: 100%;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a.active {
+            font-weight: bold;
+            color: var(--link-color);
+        }
+
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--link-color);
+            animation: slideIn 0.3s ease;
+        }
+        .footer {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--bg-color);
+            border: 2px solid var(--border-color);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(128, 128, 128, 0.1);
+            font-weight: bold;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        /* Responsive Tables */
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">💡</button>
+    
+    <header>
+        <a href="https://www.instagram.com/bipinkumar_kaniampal" target="_blank">
+            <div class="dp" alt="Profile picture of Bipinkumar Kaniampal"></div>
+        </a>
+        <h2>Bipinkumar Kaniampal</h2>
+        <div class="banner">
+            <img src="https://raw.githubusercontent.com/bipinxw/RoleRadar.ai/refs/heads/main/RoleRadar.ai.png" alt="RoleRadar.ai Logo">
+        </div>
+        <h1>RoleRadar.ai - AI Job Curator</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Go Back</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview" class="section">
+            <h2>Overview</h2>
+            <p>RoleRadar.ai is an innovative job-matching platform designed to help users find the perfect job opportunities based on their professional experience. The platform leverages AI to curate personalized job listings by analyzing job descriptions and matching them to a user's resume.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>AI Job Matching</strong>: Matches user resumes with job listings based on semantic similarity using a BERT-based model.</li>
+                <li><strong>Easy Search</strong>: Enter your job designation and fetch curated job listings.</li>
+                <li><strong>Resume Upload & Processing</strong>: Upload your resume and get scores for each job based on how well they match your experience.</li>
+                <li><strong>Real-Time Results</strong>: Receive personalized job opportunities with detailed insights.</li>
+                <li><strong>Customizable User Flow</strong>: The application offers a simple and streamlined interface for an intuitive user experience.</li>
+            </ul>
+
+            <h3>Technologies Used</h3>
+            <ul>
+                <li><strong>Frontend</strong>: HTML5, CSS3 & Javascript for minimalistic, responsive UI with animations.</li>
+                <li><strong>Backend</strong>: Flask for API requests and job processing.</li>
+                <li><strong>AI</strong>: BERT and Cosine Similarity for advanced semantic matching.</li>
+                <li><strong>Scraping</strong>: SerpApi for fetching job listings.</li>
+            </ul>
+        </section>
+
+        <section id="how-it-works" class="section">
+            <h2>How It Works</h2>
+            <p>The platform matches jobs to your resume through a simple 5-step process:</p>
+            <ol>
+                <li>Enter your job designation (e.g., "Product Manager").</li>
+                <li>The system fetches relevant job listings from various sources.</li>
+                <li>Upload your resume (PDF format).</li>
+                <li>AI compares your resume with job descriptions, generating match scores.</li>
+                <li>View top job matches, including score and reason for recommendation.</li>
+            </ol>
+            <p><a href="https://docs.google.com/presentation/d/1NNu-XwlWlLQt7rgSOLkk7Yrdx_jmlR3HUkKIiGOn1ws/">[ Know More ]</a></p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <em>Turning vision into value </em>🌱<br>
+        &copy; 2025 Bipinkumar Kaniampal. All rights reserved.
+    </footer>
+
+
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html>

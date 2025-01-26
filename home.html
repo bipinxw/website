@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Associate Product Manager passionate about product marketing management, biking, adventuring, and innovation, based in Pune, India.">
+    <meta name="keywords" content="Product Management, Product Marketing, Biker, Adventurer, Pune, APM, Associate Product Manager">
+    <meta name="author" content="Your Name">
+    <title>Bipinkumar Kaniampal</title>
+
+    <!-- Font Awesome CDN for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #007BFF;
+            --nav-link-color: #333333; /* Ensures navigation links have the original font color */
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #010000;
+            --text-color: #ffffff;
+            --link-color: #8aff00; /* Toxic neon green */
+            --nav-link-color: #f5f5f5; /* Lighter color for dark mode */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .dp {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            background: url("https://uc4269e5ec0e75384a803feb2df4.previews.dropboxusercontent.com/p/thumb/ACi_s1wsDPpbuRj6eMV-IoocYo26sKVqkRkyLanAd-GRankwLU3bYX8fWVZH4HkBIiN_MUDK80aNUw0Yw3tUAXq_csZ6O1jBMCACG92gxJt8SPREr1nYeKRIbo45rROgrHzl9OvIIZJG6mV7WkApsm2NBARSc04bRJPBZreixuU8p3Le0OqPVE7RqIb_6SAekJ7VkcT2aVo9MZQNhAlvFXFzIUPHmyBl5E89CDQ1kfHzcgYn7odETHiiN9LndBID3y5vpGRwR4LwXnO9OERDv7aSepxqmuABdFrW2ZgMHDtgRN2ytL21p0CSp-ju_gGsQOFoOeQjcVxOY74-Lx0xPi5X7Rvr2vfaBBX2fXUDSfaeuaVpS3JP8zFUqZmjRW-_frhNJTyHA-QqUbkqzx5KN3em/p.jpeg") center/cover;
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .dp::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: gradientAnimation 3s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .dp:hover {
+            transform: scale(1.1) rotate(5deg);
+            cursor: pointer;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            color: var(--link-color);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.2);
+            color: var(--text-color);
+            background-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 31px;
+            margin: 10px 0;
+            border-bottom: 1px solid var(--bg-color);
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            max-width: 100%;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a.active {
+            font-weight: bold;
+            color: var(--link-color);
+        }
+
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--link-color);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: var(--text-color); /* Default color is now the text color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--link-color); /* On hover, the color becomes the link color */
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-left: 2px solid var(--link-color);
+        }
+
+        .timeline li {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline li:before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--link-color);
+            border-radius: 50%;
+            border: 2px solid var(--bg-color);
+        }
+
+        .timeline li:hover::before {
+            background: gray;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .footer:hover {
+            opacity: 1;
+        }
+
+        .footer a {
+            color: var(--link-color);
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--text-color);
+        }
+
+        /* Media Queries for Small Screens */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 0.9rem;
+                margin: 0 10px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .social-icons {
+                gap: 20px;
+            }
+
+            .dp {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 0;
+            }
+
+            .dp {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Lazy loading images */
+        img {
+            loading: lazy;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in effect for sections */
+        @keyframes fadeInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInFromTop 0.6s ease-out;
+        }
+
+    </style>
+</head>
+<body data-theme="dark">
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">💡</button>
+
+    <header>
+        <a href="https://www.instagram.com/bipinkumar_kaniampal" target="_blank">
+            <div class="dp" alt="Profile picture of Bipinkumar Kaniampal"></div>
+        </a>
+        <h1>Bipinkumar Kaniampal</h1>
+        <p>Product Manager | Exploring new things. </p>
+        <p><em>"Turning vision into value"</em><br></p>
+        <!-- Location Pin for Pune, India -->
+        <p> 📍 Pune, India</p>
+
+        <!-- Social Icons Section -->
+        <div class="social-icons">
+            <a href="mailto:bipinkumarxv@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a> <!-- Email Icon -->
+            <a href="https://www.linkedin.com/in/1bipinkumar1" target="_blank"><i class="fab fa-linkedin"></i></a> <!-- LinkedIn Icon -->
+            <a href="https://www.instagram.com/bipinkumar_kaniampal" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Instagram Icon -->
+        </div>
+    </header>
+
+    <nav>
+        <a href="#about" class="active">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <!--
+        <a href="#blogs">Blogs</a>-->
+    </nav>
+
+    <div class="content">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>I'm <strong>Bipinkumar Kaniampal</strong>, a dedicated Product Manager and avid motorcyclist who thrives on exploring new horizons, both on and off the road.</p>
+            <p>In product management, I apply the same focus, strategic thinking, and agility that motorcycling requires—anticipating challenges, adapting to changing conditions, and charting the best path forward. This approach enables me to design innovative solutions that effectively bridge user needs with business objectives, driving measurable success.</p>
+        </section>
+
+        <section id="experience" class="section">
+            <h2>Work Experience</h2>
+            <ul class="timeline">
+                <li>
+                    <strong>Associate Product Manager</strong> at Sekel Tech <br>
+                    <em>Jan 2023 - Oct 2024</em> <br>
+                </li>
+                <li>
+                    <strong>Product Operations Executive</strong> at Flipkart Ads <br>
+                    <em>Sep 2021 - Dec 2022</em> <br>
+                </li>
+                <li>
+                    <strong>Data Analyst</strong> at Verificient Technologies <br>
+                    <em>Sep 2020 - Aug 2021</em> <br>
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <a href="RoleRadar ai.html" class="project-link">RoleRadar.ai - AI Job Curator</a> - <span>Independently developed RoleRadar.ai, an AI-powered job curator, from ideation to MVP, enabling seamless job searches by matching user resumes with top roles through advanced AI algorithm.</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="airtable-india-gtm.html" class="project-link">Airtable India - GTM Plan</a> - <span>Developed a comprehensive Go-To-Market (GTM) strategy for Airtable's entry into the Indian market, focusing on positioning, customer segmentation, and growth marketing.</span>
+                </li>
+            </ul>
+        </section>
+        <!--
+        <section id="blogs" class="section">
+            <h2>Blogs</h2>
+            <ul>
+                <li><a href="#">Blog Post 1: Insightful Topic</a></li>
+                <li><a href="#">Blog Post 2: Another Topic</a></li>
+            </ul>
+        </section>
+        -->
+    </div>
+
+    <footer class="footer">
+        <em>Turning vision into value </em>🌱<br>
+        &copy; 2025 Bipinkumar Kaniampal. All rights reserved.
+    </footer>
+
+    <script>
+        // Toggle between light and dark theme
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+
+            // Save the new theme in the URL query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('theme', newTheme); // Set the theme in the URL query
+            window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+        }
+
+        // Apply the theme based on the URL parameter
+        function applyThemeFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const theme = urlParams.get('theme');
+
+            if (theme) {
+                document.body.setAttribute('data-theme', theme);
+            }
+        }
+
+        // Apply the theme when the page loads
+        window.addEventListener('DOMContentLoaded', applyThemeFromUrl);
+    </script>
+    
+</body>
+</html>
