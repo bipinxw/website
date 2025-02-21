@@ -186,6 +186,58 @@
         td {
             vertical-align: top;
         }
+/* Media Queries for Small Screens */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 0.7rem;
+                margin: 0 10px;
+            }
+
+            header h1 {
+                font-size: 0.9rem;
+            }
+
+            .content {
+                padding: 10px;
+                font-size: 0.75rem;
+            }
+
+            .social-icons {
+                gap: 20px;
+            }
+
+            .dp {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 0;
+            }
+
+            .dp {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 0.75rem;
+            }
+            p {
+                font-size: 0.7rem;
+            }
+        }
 
         /* Responsive Tables */
         @media (max-width: 768px) {
